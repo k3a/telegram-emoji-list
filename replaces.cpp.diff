@@ -1,0 +1,15 @@
+--- replaces.cpp	2018-02-01 23:53:51.441159665 +0100
++++ replaces.mod.cpp	2018-02-01 23:53:40.985836055 +0100
+@@ -448,6 +448,12 @@
+ 				id += QChar(kPostfix);
+ 			}
+ 			for (auto it = sorted.find(id); it != sorted.cend(); sorted.erase(it), it = sorted.find(id)) {
++				auto y = -index/40 * 45;
++				auto x = -index%40 * 45;
++
++				std::cout << "<tr><td><div class=\"emj\" style=\"background-position: " << x << "px " << y << "px\"></div></td><td><strong>" << it.value().replacement.toStdString() << "</strong><br/>" << \
++				   	it.value().name.toStdString() << "</td></tr>" << std::endl;
++
+ 				result.list.push_back(it.value());
+ 			}
+ 		}
